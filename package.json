@@ -1,0 +1,11 @@
+{
+  "name": "near-offline-signature",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "<kay20475@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "js-sha256": "^0.9.0",
+    "near-api-js": "^0.44.2"
+  }
+}
