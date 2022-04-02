@@ -1,5 +1,5 @@
 const { providers } = require("near-api-js");
-const sender = "shanks.testnet";
+const sender = "SENDER_ID";
 const networkId = "testnet";
 const publicKey = "ed25519:Hr61mCNpgBxuCNJNAH82A6fKhsXsSsUB8zp1m2VYTars";
 const provider = new providers.JsonRpcProvider({

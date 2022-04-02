@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Author: kay
+ * @Date: 2022-03-22 14:46:35
+ * @LastEditTime: 2022-04-02 17:34:26
+ * @LastEditors: kay
+ */
 const { utils, transactions } = require("near-api-js");
 const sha256 = require("js-sha256");
 const path = require("path");
@@ -6,11 +13,20 @@ const homedir = require("os").homedir();
 const networkId = "testnet";
 const sender = "shanks.testnet";
 const contractId = "ft.shanks.testnet";
+
+// get pirvate key from key file
 const keyFilePath = path.resolve(
   homedir,
   `./.near-credentials/${networkId}/${sender}.json`
 );
 const keyFile = require(keyFilePath);
+const keyPair = utils.key_pair.KeyPairEd25519.fromString(keyFile.private_key);
+
+// get PrivateKey from mnemonic
+// const { parseSeedPhrase } = require("near-seed-phrase");
+// let mnemonic = "put lemon lunch resource space gloom lonely melody crew lazy among grace";
+// let { secretKey, publicKey } = parseSeedPhrase(mnemonic);
+// const keyPair = utils.key_pair.KeyPairEd25519.fromString(secretKey);
 
 const nonce = 78589014000036;
 const blockHash = utils.serialize.base_decode(
@@ -26,7 +42,7 @@ const actions = [
   ),
 ];
 // create transaction
-const keyPair = utils.key_pair.KeyPairEd25519.fromString(keyFile.private_key);
+
 const transaction = transactions.createTransaction(
   sender,
   keyPair.getPublicKey(),
